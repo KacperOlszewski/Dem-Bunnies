@@ -42,11 +42,14 @@
   display: none;
 } 
 .jump {
-	-webkit-animation: jump 0.9s;
-   	-moz-animation: jump 0.9s;
-    -ms-animation: jump 0.9s;
-     -o-animation: jump 0.9s;
-    animation: jump 0.9s;
+	-webkit-animation: jump 0.8s;
+   	-moz-animation: jump 0.8s;
+    -ms-animation: jump 0.8s;
+     -o-animation: jump 0.8s;
+    animation: jump 0.8s;
+}
+.black {
+  background-color: black !important;
 }
 .rubber div {
 	position: relative;
