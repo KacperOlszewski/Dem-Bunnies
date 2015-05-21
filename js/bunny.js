@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
   $('.rubber').click(function() {
     randoms();
 
@@ -7,11 +6,13 @@ $(document).ready(function() {
   })
 });
 
-var [i, points, score, combo, stack] = [0, 0, 0, -1, 1]; 
+var start = [0, 0, 0, -1, 1];    //var [i, points, score, combo, stack] = [0, 0, 0, -1, 1];
 
-function randoms(n) { 
-    var [limit, initial, bunny_duration] = [100, 3000, 800];
-    var progress = i/limit;
+function randoms() { 
+    var limit = 200; //number of jumps
+    var initial = 2800; //starting interval 
+    var bunny_duration = 800; //time bunny exists
+    var progress = start[0]/limit;
     var max_speed = bunny_duration / initial;
     var speed = initial - (progress * initial * (1-max_speed));
     var random = [1,2,3,4,5,6,7,8,9][Math.floor(Math.random()*9)];
@@ -22,15 +23,15 @@ function randoms(n) {
     setTimeout(function () 
     {
       spawn(random, black, progress);
-        i++; 
-        if (i < (limit-1) )
+        start[0]++; 
+        if (start[0] < (limit-1) )
         { 
            randoms();  
         }
         else
         {
           $('.rubber').show("fast");
-          return [i, points, score, combo, stack] = [0, 0, 0, -1, 1]; 
+          return start = [0, 0, 0, -1, 1];
         }
     }, speed)
 
@@ -41,34 +42,34 @@ function randoms(n) {
     $('span.white').click(function() {
 
         $(this).hide();
-        points++;
-        if (i == combo+1) {
-            stack++;
-            if (stack % 5 != 0) {
+        start[1]++;
+        if (start[0] == start[3]+1) {
+            start[4]++;
+            if (start[4] % 5 != 0) {
               hit = 10 * (Math.round(progress*10) / 5 + 1); 
             }
             else {
-              wombo = 2*(stack/5);
+              wombo = 2*(start[4]/5);
               hit = wombo * 10 * (Math.round(progress*10) / 5 + 1); 
-              $('#wombo').html(wombo+"X !!!"+stack);  
+              $('#wombo').html(wombo+"X !!!"+start[4]);  
             }
         }       
         else {
             hit = 10 * (Math.round(progress*10) / 5 + 1); 
-            stack = 1;
+            start[4] = 1;
         };
-        score += hit;     
-        combo = i;
-        $('#points').html(Math.round(score));
+        start[2] += hit;     
+        start[3] = start[0];
+        $('#points').html(Math.round(start[2]));
     });
 
     $('span.black').click(function() {
         $(this).hide();
-        score *= 0.8;     
-        stack = 1;
-        $('#points').html(Math.round(score));
+        start[2] *= 0.8;     
+        start[4] = 1;
+        $('#points').html(Math.round(start[2]));
     });
-   // return i = 0; infinite
+   // return start[0] = 0; infinite
 }
 
 function spawn(random, black, progress) {

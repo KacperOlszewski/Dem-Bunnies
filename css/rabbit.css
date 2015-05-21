@@ -42,11 +42,10 @@
   display: none;
 } 
 .jump {
-	-webkit-animation: jump 0.8s;
-   	-moz-animation: jump 0.8s;
-    -ms-animation: jump 0.8s;
-     -o-animation: jump 0.8s;
-    animation: jump 0.8s;
+	-webkit-animation-name: jump;
+  animation-name: jump;
+  -webkit-animation-duration: 0.8s;
+  animation-duration: 0.8s;
 }
 .black {
   background-color: black !important;
@@ -63,52 +62,32 @@
 }
 
 @keyframes jump {
-  0% {
-    top: 10px;
-  }
-  10% {
-    top: -40px;
-  }
-  20% {
-    top: -72px;
-  }
-  30% {
-    top: -88px;
-  }
-  40% {
-/*     -webkit-transform: scale(0.7);
--ms-transform: scale(0.7);
--moz-animation: scale(0.7);
--o-animation: scale(0.7);
-transform: scale(0.7); */
-    top: -94px;
-  }
-
-  45% {
-    top: -98px;
-  }
-
-  50% {
-    top: -100px;
-  }
-
-  55% {
-    top: -98px;    
-  }
-
-  60% {
-    top: -94px;    
-  }
-  70% {
-    top: -88px;
-  }
-  80% {
-    top: -72px;
-  }
-  90 % {
-    top: -40px;
-  }
-  100% {
-    top: 10px;
-  }
+  0% {top: 10px;}
+  10% {top: -40px;}
+  20% {top: -72px;}
+  30% {top: -88px;}
+  40% {top: -94px;}
+  45% {top: -98px;}
+  50% {top: -100px;}
+  55% {top: -98px;}
+  60% {top: -94px;}
+  70% {top: -88px;}
+  80% {top: -72px;}
+  90% {top: -40px;}
+  100% {top: 10px;}
+}
+@-webkit-keyframes jump {
+  0% {top: 10px;}
+  10% {top: -40px;}
+  20% {top: -72px;}
+  30% {top: -88px;}
+  40% {top: -94px;}
+  45% {top: -98px;}
+  50% {top: -100px;}
+  55% {top: -98px;}
+  60% {top: -94px;}
+  70% {top: -88px;}
+  80% {top: -72px;}
+  90% {top: -40px;}
+  100% {top: 10px;}
 }
