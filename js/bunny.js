@@ -9,7 +9,7 @@ $(document).ready(function() {
   })
 });
 
-var [i, points] = [0, 0]; 
+var [i, points, score, combo, stack] = [0, 0, 0, -1, 0]; 
 
 function randoms(n) { 
     var limit = 100;
@@ -24,14 +24,14 @@ function randoms(n) {
     {
       spawn(random);
         i++; 
-        if (i < (limit) )
+        if (i < (limit-1) )
         { 
            randoms();  
         }
         else
         {
           $('.rubber').show("fast");
-          return [i, points] = [0, 0]; 
+          return [i, points, score, combo] = [0, 0, 0, -1]; 
         }
     }, speed)
 
@@ -40,10 +40,27 @@ function randoms(n) {
     }, speed+899);
 
     $('span.jump').click(function() {
+
         $(this).hide();
         points++;
-        var score = points * 10;
-        $('#points').html(score);
+        if (i == combo+1) {
+            stack++;
+            if (stack % 5 != 0) {
+            hit = 10 * (Math.round(i/limit*10) / 5 + 1); 
+            }
+            else {
+            wombo = 2*(stack/5);
+            hit = wombo * 10 * (Math.round(i/limit*10) / 5 + 1); 
+            $('#wombo').html(wombo+"X !!!"+stack);  
+            }
+        }       
+        else {
+            hit = 10 * (Math.round(i/limit*10) / 5 + 1); 
+            stack = 0;
+        };
+        score += hit;     
+        combo = i;
+        $('#points').html(Math.round(score));
     });
    // return i = 0; infinite
 }

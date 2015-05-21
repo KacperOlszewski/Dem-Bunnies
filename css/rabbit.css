@@ -30,7 +30,7 @@
 }
 .rubber {
 	position: absolute;
-	top: 40px;
+	top: 80px;
 	left: 40px;
 	width: 40px;
 	height: 80px;
@@ -63,12 +63,14 @@
   0% {
     top: 10px;
   }
-
+  10% {
+    top: -40px;
+  }
   20% {
-    top: -70px;
+    top: -72px;
   }
   30% {
-    top: -82px;
+    top: -88px;
   }
   40% {
 /*     -webkit-transform: scale(0.7);
@@ -76,11 +78,11 @@
 -moz-animation: scale(0.7);
 -o-animation: scale(0.7);
 transform: scale(0.7); */
-    top: -90px;
+    top: -94px;
   }
 
   45% {
-    top: -95px;
+    top: -98px;
   }
 
   50% {
@@ -88,13 +90,22 @@ transform: scale(0.7); */
   }
 
   55% {
-    top: -95px;    
+    top: -98px;    
   }
 
+  60% {
+    top: -94px;    
+  }
   70% {
-    top: -70px;    
+    top: -88px;
+  }
+  80% {
+    top: -72px;
+  }
+  90 % {
+    top: -40px;
   }
   100% {
     top: 10px;
   }
-  }
+}
