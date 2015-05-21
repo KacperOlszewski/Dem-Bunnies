@@ -1,9 +1,23 @@
 $(document).ready(function() {
-  $('.rubber').click(function() {
-    randoms();
+    $('.rubber').click(function() {
+      randoms();
+      $(this).hide("fast");
+    });
 
-    $(this).hide("fast");
-  })
+    var $window = $(window);
+    var height = $(window).height();
+          
+    function checkWidth() {
+    var windowsize = $window.width();
+    var hole = $('.field div');
+
+    $('.panel').css({"height":(height*0.219)+'px'});  
+    hole.css({"height":(height*0.1)+'px',"margin-top":(height*0.1)+'px' });
+    }
+
+    checkWidth();
+    $(window).resize(checkWidth);
+
 });
 
 var start = [0, 0, 0, -1, 1];    //var [i, points, score, combo, stack] = [0, 0, 0, -1, 1];
@@ -39,7 +53,7 @@ function randoms() {
           destroy(random);
     }, speed+(bunny_duration-1));
 
-    $('span.white').click(function() {
+    $('span.white').bind('click touchstart', function () {
 
         $(this).hide();
         start[1]++;
@@ -63,7 +77,7 @@ function randoms() {
         $('#points').html(Math.round(start[2]));
     });
 
-    $('span.black').click(function() {
+    $('span.black').bind('click touchstart', function() {
         $(this).hide();
         start[2] *= 0.8;     
         start[4] = 1;
