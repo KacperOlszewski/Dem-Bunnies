@@ -2,13 +2,14 @@
 
 body {
   font-family: 'Fjalla One';
+  overflow: hidden;
 }
 
 .field {
   width: 100%;
   height: 100%;
   margin: 0 auto;
-  max-width: 1100px;
+  max-width: 1160px;
   text-align: center;
 }
 
@@ -22,24 +23,9 @@ body {
 }
 .container {
   margin: 0 auto;
-  max-width: 1100px;
+  max-width: 1160px;
   position: relative;
   width: 100%;
-}
-#wombo {
-  position: absolute;
-  top:20px;
-  right: 20px;
-  padding: 14px;
-  border-radius: 50%;
-  background: #FFF;
-  text-align: center;
-  text-transform: uppercase;
-  display: none;
-  font-size: 28px;
-  -ms-transform: rotate(26deg);
-  -webkit-transform: rotate(26deg); 
-  transform: rotate(26deg);
 }
 .field div {
   position: relative;
@@ -53,6 +39,7 @@ body {
 	-moz-transition: 0.1s ease;
 	-o-transition: 0.1s ease;
 	transition: 0.1s ease;
+  z-index: 999999;
 }
 .field div span {
   cursor: pointer;
@@ -62,6 +49,7 @@ body {
   width: 80%;
   margin: 0 auto;
   background-color: transparent;
+  z-index: 999;
 }
 .white {
   background: url(../graphics/doge.gif) center center no-repeat;
@@ -86,7 +74,7 @@ body {
 .starter {
 	position: absolute;
   width: 110px;
-	bottom: 20%;
+	bottom: 20px;
   text-transform: uppercase;
 	left: 0;
   text-align: center;
@@ -107,11 +95,42 @@ body {
 }
 .counter {
   position: absolute;
-  top: 0px;
+  top: 20px;
   color: #262626;
   left: 20px;
+  margin: 0; padding-top: 0;
   text-transform: uppercase;
   font-size: 26px;
+}
+#calculator {
+  position: relative;
+  text-transform: none;
+  font-size: 18px;
+  padding-left: 12px;
+  top: -3px
+}
+#wows {
+  text-transform: uppercase;
+  font-size: 26px; 
+  display: none;
+}
+#wombo {
+  position: absolute;
+  top:10px;
+  right: 10px;
+  padding: 16px;
+  border-radius: 50%;
+  background: #FFF;
+  text-align: center;
+  text-transform: uppercase;
+  font-size: 28px;
+  display: none;
+  -moz-box-shadow: 0 0 5px #fff;
+  -webkit-box-shadow: 0 0 8px #fff;
+  box-shadow: 0px 0px 5px #fff;
+  -ms-transform: rotate(26deg);
+  -webkit-transform: rotate(26deg); 
+  transform: rotate(26deg);
 }
 .hide {
   display: none;
@@ -125,70 +144,70 @@ body {
 .combo {
   -webkit-animation-name: combo;
   animation-name: combo;
-  -webkit-animation-duration: 0.6s;
-  animation-duration: 0.6s; 
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s; 
 }
 
 
 @keyframes jump {
-  0% {top: 10%;}
-  10% {top: -40%;}
-  20% {top: -74%;}
-  30% {top: -88%;}
-  40% {top: -94%;}
-  45% {top: -98%;}
-  50% {top: -100%;}
-  55% {top: -98%;}
-  60% {top: -94%;}
-  70% {top: -88%;}
-  80% {top: -74%;}
-  90% {top: -40%;}
-  100% {top: 10%;}
+  0% {top: 10px;}
+  10% {top: -50%;}
+  20% {top: -84%;}
+  30% {top: -98%;}
+  40% {top: -104%;}
+  45% {top: -108%;}
+  50% {top: -110%;}
+  55% {top: -108%;}
+  60% {top: -104%;}
+  70% {top: -98%;}
+  80% {top: -84%;}
+  90% {top: -50%;}
+  100% {top: 10px;}
 }
 @-webkit-keyframes jump {
-  0% {top: 10%;}
-  10% {top: -40%;}
-  20% {top: -74%;}
-  30% {top: -88%;}
-  40% {top: -94%;}
-  45% {top: -98%;}
-  50% {top: -100%;}
-  55% {top: -98%;}
-  60% {top: -94%;}
-  70% {top: -88%;}
-  80% {top: -74%;}
-  90% {top: -40%;}
-  100% {top: 10%;}
+  0% {top: 10px;}
+  10% {top: -50%;}
+  20% {top: -84%;}
+  30% {top: -98%;}
+  40% {top: -104%;}
+  45% {top: -108%;}
+  50% {top: -110%;}
+  55% {top: -108%;}
+  60% {top: -104%;}
+  70% {top: -98%;}
+  80% {top: -84%;}
+  90% {top: -50%;}
+  100% {top: 10px;}
 }
 
 @keyframes combo {
-  0% {padding: 1%; letter-spacing: 100%}
-  10% {padding: 2.4%;}
-  20% {padding: 2.7%;}
-  30% {padding: 2.9%;}
-  40% {padding: 3.05%;}
-  45% {padding: 3.1%;}
-  50% {padding: 3.1%;letter-spacing: 180%}
-  55% {padding: 3.0%;}
-  60% {padding: 2.85%;}
-  70% {padding: 2.60%;}
-  80% {padding: 2.2%;}
-  90% {padding: 1.6%;}
-  100% {padding: 1%;}
+  0% {padding: 14px;}
+  10% {padding: 22px;}
+  20% {padding: 27px;}
+  30% {padding: 31px}
+  40% {padding: 34px;}
+  45% {padding: 35px;}
+  50% {padding: 36px;}
+  55% {padding: 36px;}
+  60% {padding: 34px;}
+  70% {padding: 31px;}
+  80% {padding: 27px;}
+  90% {padding: 22px;}
+  100% {padding: 16px;}
 }
 
 @-webkit-keyframes combo {
-  0% {padding: 1%;}
-  10% {padding: 2.4%;}
-  20% {padding: 2.7%;}
-  30% {padding: 2.9%;}
-  40% {padding: 3.05%;}
-  45% {padding: 3.1%;}
-  50% {padding: 3.1%;}
-  55% {padding: 3.0%;}
-  60% {padding: 2.85%;}
-  70% {padding: 2.60%;}
-  80% {padding: 2.2%;}
-  90% {padding: 1.6%;}
-  100% {padding: 1%;}
+  0% {padding: 14px;}
+  10% {padding: 22px;}
+  20% {padding: 27px;}
+  30% {padding: 31px}
+  40% {padding: 34px;}
+  45% {padding: 35px;}
+  50% {padding: 36px;}
+  55% {padding: 36px;}
+  60% {padding: 34px;}
+  70% {padding: 31px;}
+  80% {padding: 27px;}
+  90% {padding: 22px;}
+  100% {padding: 16px;}
 }

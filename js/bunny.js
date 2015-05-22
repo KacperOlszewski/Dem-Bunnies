@@ -6,11 +6,13 @@ $(document).ready(function() {
 
     var $window = $(window);
     var height = $(window).height();
+    if (height > 1300) {height = 1300}
           
     function checkWidth() {
     var windowsize = $window.width();
     var hole = $('.field div');
 
+    $('body').css({"height":(height-2)+'px'});
     $('.panel, .container').css({"height":(height*0.20)+'px'});  
     hole.css({"height":(height*0.1)+'px',"margin-top":(height*0.1)+'px' });
     }
@@ -23,7 +25,7 @@ $(document).ready(function() {
 var start = [0, 0, 0, -1, 1];    //var [i, points, score, combo, stack] = [0, 0, 0, -1, 1];
 
 function randoms() { 
-    var limit = 120; //number of jumps
+    var limit = 80; //number of jumps
     var initial = 2200; //starting interval 
     var bunny_duration = 740; //time bunny exists
     var progress = start[0]/limit;
@@ -67,7 +69,8 @@ function randoms() {
             else {
               wombo = 2*(start[4]/5);
               hit = wombo * 10 * (Math.round(progress*10) / 5 + 1); 
-              $('#wombo').html("COMBO:<br>"+wombo+"X !!").show().addClass("combo").delay(2800).fadeOut(); 
+              $('#wombo').html("COMBO:<br>"+wombo+"X !!").show().addClass("combo").fadeOut(2200); 
+              $('#wows').fadeIn(160).delay(300).fadeOut(480);
               //start[4] - stack
             }
         }       
@@ -77,15 +80,15 @@ function randoms() {
         }
         start[2] += hit;     
         start[3] = start[0];
-        $('#calculator').html(Math.round(hit));
-        $('#points').html(Math.round(start[2])).fadeIn("slow");
+        $('#calculator').html("+"+Math.round(hit)+"pkt").fadeIn(160).delay(300).fadeOut(480);
+        $('#points').html(Math.round(start[2]));
     });
 
     $('span.black').bind('click touchstart', function() {
         $(this).hide();
         start[2] *= 0.8;     
         start[4] = 1;
-        $('#calculator').html(Math.round(" -20% :'("));
+        $('#calculator').html(" -20%").fadeIn(160).delay(300).fadeOut(480);
         $('#points').html(Math.round(start[2]));
     });
    // return start[0] = 0; infinite
@@ -93,11 +96,11 @@ function randoms() {
 
 function spawn(random, black, progress, bunny_size) {
   if (black < (progress*0.5)) {
-    $(".rabbit"+random).append("<span class='jump black'>"+random+"</span>");
+    $(".rabbit"+random).append("<span class='jump black'></span>");
   }
   else {
     start[0]++; 
-    $(".rabbit"+random).append("<span class='jump white'>"+random+"</span>");
+    $(".rabbit"+random).append("<span class='jump white'></span>");
   }
 }
 function destroy(random) {
