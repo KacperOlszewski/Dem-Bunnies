@@ -1,4 +1,4 @@
-Dem Bunnies! HTML5 + CSS + Javascript
+Dem Bunnies!
 
 preview:
 http://symbioza.net.pl/users/kacper/bunny/index.html

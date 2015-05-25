@@ -11,7 +11,14 @@ body {
   margin: 0 auto;
   max-width: 1160px;
   text-align: center;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
+
 
 .panel {
   width: 100%;
@@ -29,16 +36,16 @@ body {
 }
 .field div {
   position: relative;
-	width:21%;
-	height: 100px;
-	margin: 0 4%;
-	background-color: #CFCFCF;
+  width:21%;
+  height: 100px;
+  margin: 0 4%;
+  background-color: #CFCFCF;
   display: inline-block;
   border-radius: 50%;
-	-webkit-transition: 0.1s ease;
-	-moz-transition: 0.1s ease;
-	-o-transition: 0.1s ease;
-	transition: 0.1s ease;
+  -webkit-transition: 0.1s ease;
+  -moz-transition: 0.1s ease;
+  -o-transition: 0.1s ease;
+  transition: 0.1s ease;
   z-index: 999999;
 }
 .field div span {
@@ -72,20 +79,20 @@ body {
   margin: 0 5%;
 }
 .starter {
-	position: absolute;
+  position: absolute;
   width: 110px;
-	bottom: 20px;
+  bottom: 20px;
   text-transform: uppercase;
-	left: 0;
+  left: 0;
   text-align: center;
-	right: 0;
+  right: 0;
   margin: 0 auto;
   padding: 10px;
   font-size: 32px;
-	background-color:#E1E1E1;
+  background-color:#E1E1E1;
   color: #262626;
-	border-radius: 6px;
-	cursor: pointer;
+  border-radius: 6px;
+  cursor: pointer;
 }
 .starter:hover {
   -webkit-animation-name: combo;
@@ -136,10 +143,10 @@ body {
   display: none;
 } 
 .jump {
-	-webkit-animation-name: jump;
-  animation-name: jump;
-  -webkit-animation-duration: 0.75s;
-  animation-duration: 0.75s;
+  -webkit-animation-name: jump;
+  animation-name: jump; 
+  -webkit-animation-duration: 0.7s;
+  animation-duration: 0.7s;
 }
 .combo {
   -webkit-animation-name: combo;
@@ -182,22 +189,36 @@ body {
 
 @keyframes combo {
   0% {padding: 14px;}
-  10% {padding: 22px;}
-  20% {padding: 27px;}
-  30% {padding: 31px}
+  5% {padding: 22px;}
+  10% {padding: 27px;}
+  14% {padding: 31px}
+  18% {padding: 34px;}
+  21% {padding: 35px;}
+  23% {padding: 36px;}
+  30% {padding: 36px;}
   40% {padding: 34px;}
-  45% {padding: 35px;}
-  50% {padding: 36px;}
-  55% {padding: 36px;}
-  60% {padding: 34px;}
-  70% {padding: 31px;}
-  80% {padding: 27px;}
-  90% {padding: 22px;}
+  52% {padding: 31px;}
+  66% {padding: 27px;}
+  84% {padding: 22px;}
   100% {padding: 16px;}
 }
 
 @-webkit-keyframes combo {
   0% {padding: 14px;}
+  5% {padding: 22px;}
+  10% {padding: 27px;}
+  14% {padding: 31px}
+  18% {padding: 34px;}
+  21% {padding: 35px;}
+  23% {padding: 36px;}
+  30% {padding: 36px;}
+  40% {padding: 34px;}
+  52% {padding: 31px;}
+  66% {padding: 27px;}
+  84% {padding: 22px;}
+  100% {padding: 16px;}
+
+<!--  0% {padding: 14px;}
   10% {padding: 22px;}
   20% {padding: 27px;}
   30% {padding: 31px}
@@ -209,5 +230,5 @@ body {
   70% {padding: 31px;}
   80% {padding: 27px;}
   90% {padding: 22px;}
-  100% {padding: 16px;}
+  100% {padding: 16px;} -->
 }

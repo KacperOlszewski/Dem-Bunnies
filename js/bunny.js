@@ -23,19 +23,29 @@ $(document).ready(function() {
 });
 
 var start = [0, 0, 0, -1, 1];    //var [i, points, score, combo, stack] = [0, 0, 0, -1, 1];
+var last_doge;
 
 function randoms() { 
-    var limit = 80; //number of jumps
+
+    var limit = 60; //number of jumps
     var initial = 2200; //starting interval 
-    var bunny_duration = 740; //time bunny exists
+    var bunny_duration = 690; //time bunny exists
     var progress = start[0]/limit;
     var max_speed = bunny_duration / initial;
     var speed = initial - (progress * initial * (1-max_speed));
     var random = [1,2,3,4,5,6,7,8,9][Math.floor(Math.random()*9)];
     var black = Math.random();
     var bunny = $('.field div').width();
+    var triple = 1;
 
-    $('#speed').html(speed+" "+max_speed);
+    if (black > 1 - (progress/6) ) {
+      while (random === last_doge) {
+        random = [1,2,3,4,5,6,7,8,9][Math.floor(Math.random()*9)];
+      }
+      speed = speed/3;
+      triple = 2;
+      // WOW!
+    }
 
     setTimeout(function () 
     {
@@ -68,7 +78,7 @@ function randoms() {
             }
             else {
               wombo = 2*(start[4]/5);
-              hit = wombo * 10 * (Math.round(progress*10) / 5 + 1); 
+              hit = wombo * 10 * triple * (Math.round(progress*10) / 5 + 1); 
               $('#wombo').html("COMBO:<br>"+wombo+"X !!").show().addClass("combo").fadeOut(2200); 
               $('#wows').fadeIn(160).delay(300).fadeOut(480);
               //start[4] - stack
@@ -78,7 +88,7 @@ function randoms() {
             hit = 10 * (Math.round(progress*10) / 5 + 1); 
             start[4] = 1;
         }
-        start[2] += hit;     
+        start[2] += (hit * triple);     
         start[3] = start[0];
         $('#calculator').html("+"+Math.round(hit)+"pkt").fadeIn(160).delay(300).fadeOut(480);
         $('#points').html(Math.round(start[2]));
@@ -92,6 +102,7 @@ function randoms() {
         $('#points').html(Math.round(start[2]));
     });
    // return start[0] = 0; infinite
+   return last_doge = random;
 }
 
 function spawn(random, black, progress, bunny_size) {
